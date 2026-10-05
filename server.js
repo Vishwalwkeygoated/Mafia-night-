@@ -9,7 +9,9 @@ const io = new Server(server);
 const rooms = new Map();
 
 app.use(express.static(path.join(__dirname, "public")));
-
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
 const rolesFor = n => {
   const roles = [];
   const mafia = Math.max(1, Math.floor(n / 4));
